@@ -22,8 +22,8 @@ void printBitmap(bitmap a){
 		return;
 
 	for(int y=0; y<a.y; y++){
-		for(int x=0; x<a.x; x=x+1){
-			fb[y*ysz+x] = a.data[y*a.x+x] * 31;
+		for(int x=0; x<a.x; x++){
+			fb[y*xsz+x] = a.data[y*a.x+x] * 31;
 		}
 	}
 	return;
