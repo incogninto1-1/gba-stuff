@@ -13,7 +13,7 @@ typedef struct bmp{
 } bitmap;
 
 void writeFbPixel(int pos){
-	fb[pos]=255;
+	fb[pos]=64;
 	return;
 }
 
