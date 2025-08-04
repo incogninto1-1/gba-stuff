@@ -12,7 +12,7 @@ CFLAGS := $(opt) -std=c99 -pedantic -Wall
 $(bin): $(obj)
 	$(CC) -o out.elf $(obj) -Tlnkscript -nostartfiles -lm
 	$(OBJCOPY) -O binary out.elf $(bin)
-	$(RM) out.elf
+	#$(RM) out.elf
 
 -include $(obj:.o=.d)
 
