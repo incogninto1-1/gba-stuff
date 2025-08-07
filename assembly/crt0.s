@@ -71,5 +71,5 @@ rom_header_end:
     .ALIGN
     .ARM                                @ ..or you can use CODE 32 here
 start_vector:
-        bx     r0
+        
 
