@@ -71,5 +71,9 @@ rom_header_end:
     .ALIGN
     .ARM                                @ ..or you can use CODE 32 here
 start_vector:
-        
+	mov sp,#0x03000000
+	mov r4,#0x04000000
+	ldr r2,=#0x403
+	str r2,[r4] 
+	b start_vector
 
