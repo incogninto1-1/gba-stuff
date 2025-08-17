@@ -4,10 +4,10 @@ _start:
         .CODE 32
     @ Start Vector
 
-        b	code_start
+        b       rom_header_end
 
     @ Nintendo Logo Character Data (8000004h)
-@        @.fill   156,1,0
+@        .fill   156,1,0
 	.long 0x51aeff24,0x21a29a69,0x0a82843d
 	.long 0xad09e484,0x988b2411,0x217f81c0,0x19be52a3
 	.long 0x20ce0993,0x4a4a4610,0xec3127f8,0x33e8c758
@@ -58,6 +58,11 @@ _start:
     .ALIGN
     .ARM                                @ ..or you can use CODE 32 here
 
+rom_header_end:
+        b       start_vector        @ This branch must be here for proper
+                                    @ positioning of the following header.
+                                    @ DO NOT REMOVE IT.
+
 @@@@@@@@@@@@@@@@@@@@@@
 @        Reset       @
 @@@@@@@@@@@@@@@@@@@@@@
@@ -65,10 +70,10 @@ _start:
     .GLOBAL     start_vector
     .ALIGN
     .ARM                                @ ..or you can use CODE 32 here
-code_start:
+start_vector:
 	mov sp,#0x03000000
 	mov r4,#0x04000000
-	ldr r2,=#0x403
+	mov r2,=#0x403
 	str r2,[r4] 
 	b start_vector
 	
